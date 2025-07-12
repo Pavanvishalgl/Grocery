@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Grocery Billing System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body background="bg1.jpg">
+    <h1>Grocery Billing</h1>
+    <form id="itemForm">
+        <input type="text" id="name" placeholder="Item Name" required>
+        <input type="number" id="price" placeholder="Price" required>
+        <input type="number" id="quantity" placeholder="Quantity" required>
+        <button type="submit">Add Item</button>
+    </form>
+
+    <h2>Bill Summary</h2>
+    <table id="billTable">
+        <thead>
+            <tr>
+                <th>Item</th><th>Price</th><th>Qty</th><th>Total</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <h3 id="grandTotal">Grand Total: ₹0.00</h3>
+
+    <script>
+        const form = document.getElementById('itemForm');
+        const tableBody = document.querySelector('#billTable tbody');
+        const grandTotalDisplay = document.getElementById('grandTotal');
+
+        let grandTotal = 0;
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const price = parseFloat(document.getElementById('price').value);
+            const quantity = parseInt(document.getElementById('quantity').value);
+
+            const total = price * quantity;
+            grandTotal += total;
+
+            const row = `<tr>
+                            <td>${name}</td>
+                            <td>₹${price.toFixed(2)}</td>
+                            <td>${quantity}</td>
+                            <td>₹${total.toFixed(2)}</td>
+                         </tr>`;
+            tableBody.innerHTML += row;
+            grandTotalDisplay.innerText = `Grand Total: ₹${grandTotal.toFixed(2)}`;
+
+            form.reset();
+        });
+    </script>
+</body>
+</html>

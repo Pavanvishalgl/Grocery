@@ -1,0 +1,37 @@
+body {
+    background-image: url('bg.png'); 
+    background-repeat: no-repeat;
+    background-size: cover;     
+    background-position: center; 
+    background-attachment: fixed;  
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    padding: 20px;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+input, button {
+    padding: 8px;
+    margin: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
